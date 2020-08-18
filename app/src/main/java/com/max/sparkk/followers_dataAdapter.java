@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +39,7 @@ public class followers_dataAdapter extends RecyclerSwipeAdapter<followers_dataVi
     @Override
     public followers_dataViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mctx);
-        View view = inflater.inflate(R.layout.followers_item_layout, null);
+        View view = inflater.inflate(R.layout.followers_item_layout,null);
         return new followers_dataViewHolder(view);
     }
 
