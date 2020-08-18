@@ -1,0 +1,19 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/black</item>
+<item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+<style name="customfontstyle" parent="TextAppearance.AppCompat.Title">
+    <item name="android:fontFamily" >@font/source_sans_pro</item>
+    <item name="android:textSize">18sp</item>
+</style>
+    <style name="customfontstyle2" parent="TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily" >@font/source_sans_pro_semibold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+</resources>
