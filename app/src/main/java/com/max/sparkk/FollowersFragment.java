@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.daimajia.swipe.util.Attributes;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -173,6 +174,7 @@ public class FollowersFragment extends Fragment  {
 
         }
         adapter=new followers_dataAdapter(mctx,sortedlist);
+        ((followers_dataAdapter) adapter).setMode(Attributes.Mode.Single);
         followers_recyclerview.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,13 +17,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.daimajia.swipe.SwipeLayout;
+import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
 
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class followers_dataAdapter extends RecyclerView.Adapter<followers_dataViewHolder> {
+public class followers_dataAdapter extends RecyclerSwipeAdapter<followers_dataViewHolder> {
     private Context mctx;
     private List<FollowersViewModel> followers_datalist;
 
@@ -41,6 +44,9 @@ public class followers_dataAdapter extends RecyclerView.Adapter<followers_dataVi
 
     @Override
     public void onBindViewHolder(@NonNull final followers_dataViewHolder holder, final int position) {
+        holder.swipe.setShowMode(SwipeLayout.ShowMode.LayDown);
+        holder.swipe.addDrag(SwipeLayout.DragEdge.Right,holder.swipe.findViewById(R.id.bottom));
+        holder.swipe.addDrag(SwipeLayout.DragEdge.Left,holder.swipe.findViewById(R.id.bottom2));
         holder.name.setText(followers_datalist.get(position).getName());
         holder.username.setText(followers_datalist.get(position).getUsername());
         if(followers_datalist.get(position).getImage_url()=="default.png") {
@@ -74,6 +80,30 @@ public class followers_dataAdapter extends RecyclerView.Adapter<followers_dataVi
                 }
             }
         });
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        holder.mute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        holder.message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        holder.call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override
@@ -82,12 +112,18 @@ public class followers_dataAdapter extends RecyclerView.Adapter<followers_dataVi
     }
 
 
+    @Override
+    public int getSwipeLayoutResourceId(int position) {
+        return R.id.swipe;
+    }
 }
 
 class followers_dataViewHolder extends RecyclerView.ViewHolder {
     CircleImageView profilepic;
     TextView name, username;
     Button follow_btn;
+    SwipeLayout swipe;
+    ImageButton delete,mute,message,call;
 
     followers_dataViewHolder(View itemView) {
         super(itemView);
@@ -95,6 +131,11 @@ class followers_dataViewHolder extends RecyclerView.ViewHolder {
         name=itemView.findViewById(R.id.name);
         username=itemView.findViewById(R.id.username);
         follow_btn=itemView.findViewById(R.id.follow_btn);
+        swipe=itemView.findViewById(R.id.swipe);
+        delete=itemView.findViewById(R.id.delete);
+        mute=itemView.findViewById(R.id.mute);
+        message=itemView.findViewById(R.id.message);
+        swipe=itemView.findViewById(R.id.call);
 
 
     }
